@@ -2,13 +2,12 @@
  import {Check} from 'phosphor-react'
 import { clsx } from 'clsx';
 import { ReactNode } from 'react';
-export interface CheckboxProps{
-}
-export function Checkbox({}: CheckboxProps){
+export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps{}
+export function Checkbox(props: CheckboxProps){
 
     return(
         // <span className="Checkbox-grey-100 font-sans">Milton Kevin</span>
-        <CheckboxPrimitive.Root className='h-6 w-6 p-[2px] bg-grey-800 rounded'>
+        <CheckboxPrimitive.Root className='h-6 w-6 p-[2px] bg-grey-800 rounded'{...props}> 
             <CheckboxPrimitive.Indicator asChild>
                 <Check weight='bold' className='h-5 w-5 text-cyan-300'/>
             </CheckboxPrimitive.Indicator>

@@ -6,14 +6,21 @@ import { TextInput } from "../components/TextInput";
 import { Text } from "../components/Text";
 import { Logo } from "../Logo";
 import { FormEvent, useState } from "react";
+import axios from 'axios'
 
 export function SignIn(){
 
     const [isUserSignedIn, setUserSignedIn] = useState(false)
 
-    function handleSignIn(event : FormEvent){
-        
+    async function handleSignIn(event : FormEvent){
+
         event.preventDefault()
+
+        await axios.post('/sessions', {
+            email: 'miltonkevin10@gmail.com',
+            pwd: '12345678',
+        })
+
         setUserSignedIn(true)
     }
     return(
